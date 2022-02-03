@@ -1,5 +1,6 @@
 """
-    PyBackups <https://github.com/lfreist/PyBackups.git>
+    PyRsync <https://github.com/lfreist/PyRsync.git>
+    rsync.py uses systems rsync to run rsync commands from within python
 
     Copyright (C) 2022 Leon Freist <freist@informatik.uni-freiburg.de>
 
@@ -17,14 +18,17 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
-
-class DualRemoteError(Exception):
-    def __init__(self):
-        message = "source and dest cannot both be remote"
-        super().__init__(message)
+from typing import Iterable, List, Any
 
 
-class RsyncError(Exception):
-    def __init__(self, command: str):
-        message = f"There is an error with your rsync command {command!r}."
-        super.__init__(message)
+def flatten(it: Iterable) -> List[Any]:
+    """
+    flat an iterable
+    :param it: Iterable
+    :return: Generator of flattened iterable
+    """
+    for i in it:
+        if isinstance(i, Iterable) and not isinstance(i, (str, bytes)):
+            yield from flatten(i)
+        else:
+            yield i
