@@ -66,8 +66,8 @@ class Syncer:
     """
 
     def __init__(self,
-                 source: Optional[Iterable[str], str],
-                 dest: Optional[Iterable[str], str],
+                 source: Union[Iterable[str], str],
+                 dest: Union[Iterable[str], str],
                  rsync_path: str = "rsync",
                  source_ssh: str = None,
                  dest_ssh: str = None,
@@ -125,7 +125,7 @@ class Syncer:
             return list(map(lambda v: f"{name} {v}", value))
         return [f"{name}"] if value is None else [f"{name} {value}"]
 
-    def _reformat_dir(self, _dir: Optional[Iterable[str], str], server: str = None) -> str:
+    def _reformat_dir(self, _dir: Union[Iterable[str], str], server: str = None) -> str:
         """
         Reformat directory string in a style, that ssh string is appended if a server is provided.
         Example:
@@ -227,8 +227,8 @@ class Syncer:
         return self._process
 
 
-def rsync(source: Optional[Iterable[str], str],
-          dest: Optional[Iterable[str], str],
+def rsync(source: Union[Iterable[str], str],
+          dest: Union[Iterable[str], str],
           rsync_path: str = "rsync",
           source_ssh: str = None,
           dest_ssh: str = None,
