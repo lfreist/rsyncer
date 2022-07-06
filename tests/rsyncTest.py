@@ -22,7 +22,7 @@ import shutil
 import unittest
 import os
 
-from ..PyRsync import rsync
+from ..rsyncer import rsync
 
 
 class TestSyncer(unittest.TestCase):

@@ -1,6 +1,6 @@
 from setuptools import setup
 
-from PyRsync.__version__ import __version__, __description__, __title__, __url__, __author__, __author_email__
+from rsyncer.__version__ import __version__, __description__, __title__, __url__, __author__, __author_email__
 
 VERSION = __version__
 DESCRIPTION = __description__

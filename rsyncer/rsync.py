@@ -1,5 +1,5 @@
 """
-    PyRsync <https://github.com/lfreist/PyRsync.git>
+    rsyncer <https://github.com/lfreist/rsyncer.git>
     rsync.py uses systems rsync to run rsync commands from within python
 
     Copyright (C) 2022 Leon Freist <freist@informatik.uni-freiburg.de>
@@ -20,7 +20,7 @@
 
 from __future__ import annotations
 
-from PyRsync.exceptions import DualRemoteError, RsyncError
+from rsyncer.exceptions import DualRemoteError, RsyncError
 
 from typing import List, Optional, Iterable, Any, Union
 
@@ -154,6 +154,13 @@ class Syncer:
 
     def __str__(self) -> str:
         return " ".join(self.get_cmd_list())
+
+    def get_shell_command(self) -> str:
+        """
+        Get the rsync command in string format for copy & paste into the terminal
+        :return:
+        """
+        return str(self)
 
     def close(self) -> None:
         """

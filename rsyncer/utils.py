@@ -1,5 +1,5 @@
 """
-    PyRsync <https://github.com/lfreist/PyRsync.git>
+    rsyncer <https://github.com/lfreist/PyRsync.git>
     rsync.py uses systems rsync to run rsync commands from within python
 
     Copyright (C) 2022 Leon Freist <freist@informatik.uni-freiburg.de>
