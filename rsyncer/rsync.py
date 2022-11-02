@@ -150,7 +150,7 @@ class Syncer:
         self.close()
 
     def __repr__(self) -> str:
-        return f"Syncer({self.get_command()})"
+        return f"Syncer({self})"
 
     def __str__(self) -> str:
         return " ".join(self.get_cmd_list())
@@ -253,7 +253,7 @@ def rsync(source: Union[Iterable[str], str],
     :return: Bool: True, if rsync run successfully, else False
     """
     with Syncer(source, dest, rsync_path, source_ssh, dest_ssh, output, **kwargs) as sync:
-        print(sync.get_command())
+        print(sync)
         sync.run()
         p = sync.process
         p.wait()
